@@ -1,0 +1,294 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		129B1315143F41BC001239AA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 129B1314143F41BC001239AA /* UIKit.framework */; };
+		129B1317143F41BC001239AA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 129B1316143F41BC001239AA /* Foundation.framework */; };
+		129B1319143F41BC001239AA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 129B1318143F41BC001239AA /* CoreGraphics.framework */; };
+		129B131F143F41BC001239AA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 129B131D143F41BC001239AA /* InfoPlist.strings */; };
+		129B1322143F41BC001239AA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 129B1321143F41BC001239AA /* main.m */; };
+		129B1325143F41BC001239AA /* AlexKioskAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 129B1324143F41BC001239AA /* AlexKioskAppDelegate.m */; };
+		129B1328143F41BC001239AA /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 129B1326143F41BC001239AA /* MainWindow.xib */; };
+		129B132B143F41BC001239AA /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 129B132A143F41BC001239AA /* DetailViewController.m */; };
+		129B132E143F41BC001239AA /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 129B132C143F41BC001239AA /* DetailView.xib */; };
+		129B1331143F41BC001239AA /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 129B1330143F41BC001239AA /* RootViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		129B1310143F41BC001239AA /* AlexKiosk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlexKiosk.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		129B1314143F41BC001239AA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		129B1316143F41BC001239AA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		129B1318143F41BC001239AA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		129B131C143F41BC001239AA /* AlexKiosk-Info.plist */ = {isa = PBXFileReference; path = "AlexKiosk-Info.plist"; sourceTree = "<group>"; };
+		129B131E143F41BC001239AA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		129B1320143F41BC001239AA /* AlexKiosk-Prefix.pch */ = {isa = PBXFileReference; path = "AlexKiosk-Prefix.pch"; sourceTree = "<group>"; };
+		129B1321143F41BC001239AA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		129B1323143F41BC001239AA /* AlexKioskAppDelegate.h */ = {isa = PBXFileReference; path = AlexKioskAppDelegate.h; sourceTree = "<group>"; };
+		129B1324143F41BC001239AA /* AlexKioskAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlexKioskAppDelegate.m; sourceTree = "<group>"; };
+		129B1327143F41BC001239AA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		129B1329143F41BC001239AA /* DetailViewController.h */ = {isa = PBXFileReference; path = DetailViewController.h; sourceTree = "<group>"; };
+		129B132A143F41BC001239AA /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		129B132D143F41BC001239AA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DetailView.xib; sourceTree = "<group>"; };
+		129B132F143F41BC001239AA /* RootViewController.h */ = {isa = PBXFileReference; path = RootViewController.h; sourceTree = "<group>"; };
+		129B1330143F41BC001239AA /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		129B130D143F41BC001239AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				129B1315143F41BC001239AA /* UIKit.framework in Frameworks */,
+				129B1317143F41BC001239AA /* Foundation.framework in Frameworks */,
+				129B1319143F41BC001239AA /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		129B1305143F41BB001239AA = {
+			isa = PBXGroup;
+			children = (
+				129B131A143F41BC001239AA /* AlexKiosk */,
+				129B1313143F41BC001239AA /* Frameworks */,
+				129B1311143F41BC001239AA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		129B1311143F41BC001239AA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				129B1310143F41BC001239AA /* AlexKiosk.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		129B1313143F41BC001239AA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				129B1314143F41BC001239AA /* UIKit.framework */,
+				129B1316143F41BC001239AA /* Foundation.framework */,
+				129B1318143F41BC001239AA /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		129B131A143F41BC001239AA /* AlexKiosk */ = {
+			isa = PBXGroup;
+			children = (
+				129B1323143F41BC001239AA /* AlexKioskAppDelegate.h */,
+				129B1324143F41BC001239AA /* AlexKioskAppDelegate.m */,
+				129B1326143F41BC001239AA /* MainWindow.xib */,
+				129B1329143F41BC001239AA /* DetailViewController.h */,
+				129B132A143F41BC001239AA /* DetailViewController.m */,
+				129B132C143F41BC001239AA /* DetailView.xib */,
+				129B132F143F41BC001239AA /* RootViewController.h */,
+				129B1330143F41BC001239AA /* RootViewController.m */,
+				129B131B143F41BC001239AA /* Supporting Files */,
+			);
+			path = AlexKiosk;
+			sourceTree = "<group>";
+		};
+		129B131B143F41BC001239AA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				129B131C143F41BC001239AA /* AlexKiosk-Info.plist */,
+				129B131D143F41BC001239AA /* InfoPlist.strings */,
+				129B1320143F41BC001239AA /* AlexKiosk-Prefix.pch */,
+				129B1321143F41BC001239AA /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		129B130F143F41BC001239AA /* AlexKiosk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 129B1334143F41BC001239AA /* Build configuration list for PBXNativeTarget "AlexKiosk" */;
+			buildPhases = (
+				129B130C143F41BC001239AA /* Sources */,
+				129B130D143F41BC001239AA /* Frameworks */,
+				129B130E143F41BC001239AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AlexKiosk;
+			productName = AlexKiosk;
+			productReference = 129B1310143F41BC001239AA /* AlexKiosk.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		129B1307143F41BB001239AA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "CURT Manufacturing";
+			};
+			buildConfigurationList = 129B130A143F41BB001239AA /* Build configuration list for PBXProject "AlexKiosk" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 129B1305143F41BB001239AA;
+			productRefGroup = 129B1311143F41BC001239AA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				129B130F143F41BC001239AA /* AlexKiosk */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		129B130E143F41BC001239AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				129B131F143F41BC001239AA /* InfoPlist.strings in Resources */,
+				129B1328143F41BC001239AA /* MainWindow.xib in Resources */,
+				129B132E143F41BC001239AA /* DetailView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		129B130C143F41BC001239AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				129B1322143F41BC001239AA /* main.m in Sources */,
+				129B1325143F41BC001239AA /* AlexKioskAppDelegate.m in Sources */,
+				129B132B143F41BC001239AA /* DetailViewController.m in Sources */,
+				129B1331143F41BC001239AA /* RootViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		129B131D143F41BC001239AA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				129B131E143F41BC001239AA /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		129B1326143F41BC001239AA /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				129B1327143F41BC001239AA /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		129B132C143F41BC001239AA /* DetailView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				129B132D143F41BC001239AA /* en */,
+			);
+			name = DetailView.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		129B1332143F41BC001239AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		129B1333143F41BC001239AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+		129B1335143F41BC001239AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AlexKiosk/AlexKiosk-Prefix.pch";
+				INFOPLIST_FILE = "AlexKiosk/AlexKiosk-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		129B1336143F41BC001239AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AlexKiosk/AlexKiosk-Prefix.pch";
+				INFOPLIST_FILE = "AlexKiosk/AlexKiosk-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		129B130A143F41BB001239AA /* Build configuration list for PBXProject "AlexKiosk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				129B1332143F41BC001239AA /* Debug */,
+				129B1333143F41BC001239AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		129B1334143F41BC001239AA /* Build configuration list for PBXNativeTarget "AlexKiosk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				129B1335143F41BC001239AA /* Debug */,
+				129B1336143F41BC001239AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 129B1307143F41BB001239AA /* Project object */;
+}
