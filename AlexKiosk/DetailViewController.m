@@ -7,7 +7,6 @@
 //
 
 #import "DetailViewController.h"
-
 #import "RootViewController.h"
 
 @interface DetailViewController ()
@@ -25,6 +24,12 @@
 
 @synthesize popoverController=_myPopoverController;
 
+@synthesize partID;
+
+UIImageView *imgView;
+UIViewController *detail;
+UIView *partDetailView;
+
 #pragma mark - Managing the detail item
 
 /*
@@ -35,7 +40,7 @@
     if (_detailItem != newDetailItem) {
         [_detailItem release];
         _detailItem = [newDetailItem retain];
-        
+
         // Update the view.
         [self configureView];
     }
@@ -49,7 +54,14 @@
 {
     // Update the user interface for the detail item.
 
-    self.detailDescriptionLabel.text = [self.detailItem description];
+    imgView.hidden = YES;
+
+    UIView *detailView = [detail view];
+    [detailView setBackgroundColor:[UIColor whiteColor]];
+
+    //[detailView release];
+    //self.detailDescriptionLabel.text = [self.detailItem description];
+    //self.detailDescriptionLabel.text = @"CURT Hitch Finder";
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -98,13 +110,32 @@
     self.popoverController = nil;
 }
 
-/*
+
  // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
+
+    detail = [self.splitViewController.viewControllers objectAtIndex:1];
+    
+    UIImage *atv = [UIImage imageNamed:@"ATV.jpg"];
+    imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 704, 768)];
+    NSMutableArray * imageArray = [[NSMutableArray alloc] initWithCapacity:4];
+    
+    [imageArray addObject:atv];
+    [imageArray addObject:[UIImage imageNamed:@"Biker.jpg"]];
+    [imageArray addObject:[UIImage imageNamed:@"Fish.jpg"]];
+    [imageArray addObject:[UIImage imageNamed:@"Horse.jpg"]];
+    imgView.animationImages = imageArray;
+    [imageArray release];
+    
+    imgView.animationDuration = 20.0;
+    imgView.animationRepeatCount = 0;
+    [imgView startAnimating];
+    
+    [self.view addSubview:imgView];
+
     [super viewDidLoad];
 }
- */
 
 - (void)viewDidUnload
 {
@@ -131,6 +162,7 @@
     [_toolbar release];
     [_detailItem release];
     [_detailDescriptionLabel release];
+    
     [super dealloc];
 }
 

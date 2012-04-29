@@ -8,13 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol SubstitutableDetailViewController
+- (void)showRootPopoverButtonItem:(UIBarButtonItem *)barButtonItem;
+- (void)invalidateRootPopoverButtonItem:(UIBarButtonItem *)barButtonItem;
+@end
+
 @class DetailViewController;
 
 @interface RootViewController : UITableViewController {
-
+    BOOL *hideBackButton;
 }
-
+@property (nonatomic, retain) IBOutlet UITableView *yearTableView;
 		
 @property (nonatomic, retain) IBOutlet DetailViewController *detailViewController;
+
+@property (nonatomic, atomic) BOOL *hideBackButton;
 
 @end

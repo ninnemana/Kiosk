@@ -13,7 +13,7 @@
 @class DetailViewController;
 
 @interface AlexKioskAppDelegate : NSObject <UIApplicationDelegate> {
-
+    NSMutableDictionary *cartItems;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
@@ -23,5 +23,7 @@
 @property (nonatomic, retain) IBOutlet RootViewController *rootViewController;
 
 @property (nonatomic, retain) IBOutlet DetailViewController *detailViewController;
+
+@property (nonatomic, retain) NSMutableDictionary *cartItems;
 
 @end

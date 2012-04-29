@@ -21,6 +21,8 @@
 
 @synthesize detailViewController=_detailViewController;
 
+@synthesize cartItems;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
