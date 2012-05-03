@@ -10,14 +10,13 @@
 
 #import "DetailViewController.h"
 #import "PartDetailController.h"
-#import "MakeViewController.h"
+#import "YearViewController.h"
 #import "JSONKit.h"
 
 @implementation RootViewController
-		
-@synthesize detailViewController, hideBackButton;
+@synthesize detailViewController, hideBackButton, mountTableView;
 
-NSMutableArray *yearList;
+NSMutableArray *mountList;
 
 - (void)viewDidLoad
 {
@@ -35,32 +34,16 @@ NSMutableArray *yearList;
     label.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.5];
     label.textAlignment = UITextAlignmentCenter;
     label.textColor = [self colorWithHexString:@"ff581c"];
-    label.text = @"Select Year";
+    label.text = @"Select Mount";
     [label sizeToFit];
 
     [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
     self.navigationItem.titleView = label;
     
-    yearList = [[NSMutableArray alloc] init];
-    
-    NSString* year_query = [NSString stringWithFormat:@"http://docs.curthitch.biz/api/getyear?dataType=JSON"];
-    NSError* err = nil;
-    NSURLResponse* response = nil;
-    NSMutableURLRequest* request = [[[NSMutableURLRequest alloc] init] autorelease];
-    NSURL* yearURL = [NSURL URLWithString:year_query];
-    
-    [request setURL:yearURL];
-    [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
-    [request setTimeoutInterval:30];
-    
-    NSData* year_data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
-    NSMutableArray *results = [year_data objectFromJSONData];
-    int i;
-    for(i = 0; i < [results count]; i++){
-        NSString *year = (NSString*)[results objectAtIndex:i];
-        [yearList addObject:year];
-    }
-    
+    mountList = [[NSMutableArray alloc] init];
+    NSArray *mounts = [[NSArray alloc] initWithObjects:@"Front Mount",@"Rear Mount", nil];
+    [mountList addObjectsFromArray:mounts];
+    [mounts release];
     
     [super viewDidLoad];
     self.clearsSelectionOnViewWillAppear = NO;
@@ -101,7 +84,7 @@ NSMutableArray *yearList;
 		
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [yearList count];
+    return [mountList count];
     		
 }
 
@@ -122,9 +105,9 @@ NSMutableArray *yearList;
     // Configure the cell.
     
     // Set the cell's text to be the year at index of indexPath.row
-    NSString *year = (NSString *)[yearList objectAtIndex:indexPath.row];
-    NSString *formatted_year = [NSString stringWithFormat:@"%@",year];
-    cell.textLabel.text = formatted_year;
+    NSString *mount = (NSString *)[mountList objectAtIndex:indexPath.row];
+    NSString *formatted_mount = [NSString stringWithFormat:@"%@",mount];
+    cell.textLabel.text = formatted_mount;
     
     // Style the cell's background color to be black and text color to be orange
     cell.backgroundColor = [UIColor clearColor];
@@ -147,62 +130,37 @@ NSMutableArray *yearList;
     [cell setSelectedBackgroundView:bgColorView];
     
     // Variable release
-    //[selectedCell release];
-    //[year release];
-    //[formatted_year release];
     [bgColorView release];
     
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+-(IBAction)playMovie:(id)sender{
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Sema2011_CurtMfg" ofType:@"mp4"];
+    NSURL *fileURL = [NSURL fileURLWithPath:filePath];
+    MPMoviePlayerController *mpController = [[MPMoviePlayerController alloc] initWithContentURL:fileURL];
+    [self.view addSubview:mpController.view];
+    mpController.fullscreen = YES;
+    [mpController play];
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source.
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Get the vehicle year
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
-    NSString *vehicle_year = selectedCell.textLabel.text;
+    NSString *vehicle_mount = selectedCell.textLabel.text;
     
     // Gain reference to the next level and push the view to it
-    MakeViewController *makeViewController = [[MakeViewController alloc]init];
-    makeViewController.year = vehicle_year;
-    [self.navigationController pushViewController:makeViewController animated:YES];
+    YearViewController *yearViewController = [[YearViewController alloc]init];
+    yearViewController.mount = vehicle_mount;
+    [self.navigationController pushViewController:yearViewController animated:YES];
     
     // Style the back button in our navigation bar to display year
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Year" style:UIBarButtonItemStylePlain target:nil action:nil];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Mount" style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.backBarButtonItem = backButton;
     
     [backButton release];
-    [makeViewController release];
+    [yearViewController release];
 }
 
 - (void)didReceiveMemoryWarning

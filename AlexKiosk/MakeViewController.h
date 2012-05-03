@@ -12,11 +12,14 @@
 
 
 @interface MakeViewController : UITableViewController {
+    NSString *mount;
     NSString *year;
 }
 @property (nonatomic, retain) IBOutlet UITableView *makeTableView;
 
 @property (nonatomic, retain) IBOutlet DetailViewController *detailViewController;
+
+@property (nonatomic, retain) NSString *mount;
 
 @property (nonatomic, retain) NSString *year;
 

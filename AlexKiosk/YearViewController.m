@@ -1,11 +1,12 @@
 //
-//  MakeViewController.m
+//  YearViewController.m
 //  AlexKiosk
 //
-//  Created by Alex Ninneman on 10/7/11.
-//  Copyright 2011 CURT Manufacturing. All rights reserved.
+//  Created by Alex Ninneman on 5/3/12.
+//  Copyright (c) 2012 CURT Manufacturing. All rights reserved.
 //
 
+#import "YearViewController.h"
 #import "MakeViewController.h"
 #import "ModelViewController.h"
 #import "DetailViewController.h"
@@ -13,75 +14,63 @@
 #import "NSString_Encode.h"
 #import "JSONKit.h"
 
+@interface YearViewController ()
 
-@implementation MakeViewController
+@end
+
+@implementation YearViewController
 @synthesize detailViewController;
-@synthesize mount, year;
-@synthesize makeTableView;
+@synthesize mount;
+@synthesize yearTableView;
 
-NSMutableArray *makeList;
+NSMutableArray *yearList;
 
-/*- (id)initWithNibName:(NSString *) bundle:(NSBundle *)nil
-{
-    self = [super initWithNibName:@"VehicleMake" bundle:nil];
-    if (self) {
-
-    }
-    return self;
-}*/
-
-- (void)dealloc
-{
+- (void) dealloc{
     [detailViewController release];
     [super dealloc];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
+-(void) didReceiveMemoryWarning{
+    /// Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
     
-    // Release any cached data, images, etc that aren't in use.
+    // Releases any cached data, images, etc that aren't in use.
 }
 
-#pragma mark - View lifecycle
-
+#pragma mark - View Lifecycle
 /*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView
-{
-}
-*/
+ // Implement loadView to create a view hierarchy programmatically, without using a nib.
+ - (void)loadView
+ {
+ }
+ */
 
-
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad
-{
-    [self.navigationItem setHidesBackButton:NO animated:YES];
-    makeList = [[NSMutableArray alloc] init];
+- (void)viewDidLoad{
     
-    NSString* make_query = [NSString stringWithFormat:@"http://api.curtmfg.com/v2/getmake?mount=%@&year=%@&dataType=JSON", 
-                            [mount encodeString:NSUTF8StringEncoding],
-                            [year encodeString:NSUTF8StringEncoding]];
+    [self.navigationItem setHidesBackButton:NO animated:YES];
+    
+    yearList = [[NSMutableArray alloc] init];
+    NSString *year_query = [NSString stringWithFormat:@"http://api.curtmfg.com/v2/getyear?mount=%@&dataType=JSON", 
+                            [mount encodeString:NSUTF8StringEncoding]];
     
     NSError* err = nil;
     NSURLResponse* response = nil;
     NSMutableURLRequest* request = [[[NSMutableURLRequest alloc] init] autorelease];
-    NSURL* makeURL = [NSURL URLWithString:make_query];
+    NSURL* yearURL = [NSURL URLWithString:year_query];
     
-    [request setURL:makeURL];
+    [request setURL:yearURL];
     [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
     [request setTimeoutInterval:30];
     
-    NSData* make_data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
+    NSData* year_data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
     if(err){
-        [self showAlert:@"Failed to find makes for your vehicle year."];
+        [self showAlert:@"Failed to find years for your chosen mount."];
     }else{
-        NSMutableArray *results = [make_data objectFromJSONData];
+        NSMutableArray *results = [year_data objectFromJSONData];
         int i;
         for(i = 0; i < [results count]; i++){
-            NSString *make = (NSString*)[results objectAtIndex:i];
-            [makeList addObject:make];
+            NSString *year = (NSString*)[results objectAtIndex:i];
+            [yearList addObject:year];
         }
         
         [self.navigationController.navigationBar setTintColor:[UIColor blackColor]];
@@ -92,27 +81,39 @@ NSMutableArray *makeList;
         label.textAlignment = UITextAlignmentCenter;
         label.textColor = [self colorWithHexString:@"ff581c"];
         self.navigationItem.titleView = label;
-        label.text = @"Select Make";
+        label.text = @"Select Year";
         [label sizeToFit];
     }
-
+    
     [super viewDidLoad];
     self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+
+
+- (void)viewDidUnload
 {
-    return 1;
-    
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+	return YES;
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [makeList count];
-    
+    // Return the number of rows in the section.
+    return [yearList count];
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -128,9 +129,9 @@ NSMutableArray *makeList;
     // Configure the cell.
     
     // Set the cell's text to be the year at index of indexPath.row
-    NSString *make = (NSString *)[makeList objectAtIndex:indexPath.row];
-    NSString *formatted_make = [NSString stringWithFormat:@"%@",make];
-    cell.textLabel.text = formatted_make;
+    NSString *year = (NSString *)[yearList objectAtIndex:indexPath.row];
+    NSString *formatted_year = [NSString stringWithFormat:@"%@",year];
+    cell.textLabel.text = formatted_year;
     
     // Style the cell's background color to be black and text color to be orange
     cell.backgroundColor = [UIColor clearColor];
@@ -159,25 +160,26 @@ NSMutableArray *makeList;
     return cell;
 }
 
+#pragma mark - Table view delegate
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Get the vehicle make
+    // Get the vehicle year
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
-    NSString *vehicle_make = selectedCell.textLabel.text;
+    NSString *vehicle_year = selectedCell.textLabel.text;
     
     // Gain reference to the next level and push the view to it
-    ModelViewController *modelViewController = [[ModelViewController alloc]init];
-    modelViewController.mount = mount;
-    modelViewController.year = year;
-    modelViewController.make = vehicle_make;
-    [self.navigationController pushViewController:modelViewController animated:YES];
+    MakeViewController *makeViewController = [[MakeViewController alloc]init];
+    makeViewController.mount = mount;
+    makeViewController.year = vehicle_year;
+    [self.navigationController pushViewController:makeViewController animated:YES];
     
     // Style the back button in our navigation bar to display year
-    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Make" style:UIBarButtonItemStylePlain target:nil action:nil];
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Year" style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.backBarButtonItem = backButton;
     
     [backButton release];
-    [modelViewController release];
+    [makeViewController release];
 }
 
 - (UIColor *) colorWithHexString: (NSString *) hex  
@@ -215,20 +217,6 @@ NSMutableArray *makeList;
                             blue:((float) b / 255.0f)  
                            alpha:1.0f];  
 } 
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-	return YES;
-}
-
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
 	RootViewController *rootViewController = [[RootViewController alloc]init];

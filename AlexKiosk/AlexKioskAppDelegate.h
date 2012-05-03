@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KSDIdlingWindow.h"
 
 @class RootViewController;
 
@@ -16,7 +17,7 @@
     NSMutableDictionary *cartItems;
 }
 
-@property (nonatomic, retain) IBOutlet UIWindow *window;
+@property (nonatomic, retain) IBOutlet KSDIdlingWindow *window;
 
 @property (nonatomic, retain) IBOutlet UISplitViewController *splitViewController;
 

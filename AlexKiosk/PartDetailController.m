@@ -20,7 +20,7 @@
 
 @implementation PartDetailController
 
-@synthesize part, year, make, model, style, cartButtonVisible;
+@synthesize part, mount, year, make, model, style, cartButtonVisible;
 
 UITabBar *tabBar;
 UIToolbar *toolbar;
@@ -43,13 +43,6 @@ UIToolbar *toolbar;
 }
 
 #pragma mark - View lifecycle
-
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView
-{
-}
-*/
 
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -84,7 +77,7 @@ UIToolbar *toolbar;
     if([cartItems count] > 0){
         // Create the UILabel to contain the vehicle text.
         UILabel *toolbarLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 540, 44)];
-        toolbarLabel.text = [NSString stringWithFormat:@"%@ %@ %@ %@",year,make,model,style];
+        toolbarLabel.text = [NSString stringWithFormat:@"%@ %@ %@ %@ %@", mount, year, make, model, style];
         toolbarLabel.textAlignment = UITextAlignmentLeft;
         [toolbarLabel setBackgroundColor:[UIColor clearColor]];
         [toolbarLabel setFont:[UIFont boldSystemFontOfSize:20.0]];
@@ -108,7 +101,7 @@ UIToolbar *toolbar;
     }else{
         // Create the UILabel to contain the vehicle text.
         UILabel *toolbarLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 620, 44)];
-        toolbarLabel.text = [NSString stringWithFormat:@"%@ %@ %@ %@",year,make,model,style];
+        toolbarLabel.text = [NSString stringWithFormat:@"%@ %@ %@ %@",mount, year, make, model, style];
         toolbarLabel.textAlignment = UITextAlignmentLeft;
         [toolbarLabel setBackgroundColor:[UIColor clearColor]];
         [toolbarLabel setFont:[UIFont boldSystemFontOfSize:20.0]];

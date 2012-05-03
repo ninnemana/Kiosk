@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		120F8B26155197E000A7C43C /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 120F8B25155197E000A7C43C /* MediaPlayer.framework */; };
 		12235CAC1458755D00CD7FE2 /* ATV.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12235CA81458755D00CD7FE2 /* ATV.jpg */; };
 		12235CAD1458755D00CD7FE2 /* Biker.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12235CA91458755D00CD7FE2 /* Biker.jpg */; };
 		12235CAE1458755D00CD7FE2 /* Fish.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12235CAA1458755D00CD7FE2 /* Fish.jpg */; };
@@ -16,6 +17,8 @@
 		12235CC61458B5E300CD7FE2 /* selected_wiring_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 12235CC21458B5E200CD7FE2 /* selected_wiring_bg.png */; };
 		12235CC71458B5E300CD7FE2 /* wiring_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 12235CC31458B5E200CD7FE2 /* wiring_bg.png */; };
 		12310AC31444AC0C006AC6AF /* MakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12310AC21444AC0C006AC6AF /* MakeViewController.m */; };
+		1243AEFE15530ADE004D07FA /* YearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1243AEFD15530ADE004D07FA /* YearViewController.m */; };
+		127B0866155330B10031AF8C /* KSDIdlingWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 127B0865155330B10031AF8C /* KSDIdlingWindow.m */; };
 		127F375F14559D82006C9046 /* CartItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 127F375E14559D82006C9046 /* CartItem.m */; };
 		127F37681455E4DA006C9046 /* CartListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 127F37671455E4DA006C9046 /* CartListController.m */; };
 		128C390E14463F2600E8227C /* curt-logo-72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = 128C390C14463F2600E8227C /* curt-logo-72x72.png */; };
@@ -55,6 +58,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		120F8B25155197E000A7C43C /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		120F8B2815519A9F00A7C43C /* Sema2011_CurtMfg.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = Sema2011_CurtMfg.mp4; path = ../../../../Dropbox/Video/Sema2011_CurtMfg.mp4; sourceTree = "<group>"; };
 		12235CA81458755D00CD7FE2 /* ATV.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ATV.jpg; sourceTree = "<group>"; };
 		12235CA91458755D00CD7FE2 /* Biker.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Biker.jpg; sourceTree = "<group>"; };
 		12235CAA1458755D00CD7FE2 /* Fish.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fish.jpg; sourceTree = "<group>"; };
@@ -65,6 +70,10 @@
 		12235CC31458B5E200CD7FE2 /* wiring_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wiring_bg.png; path = partview_labels/wiring_bg.png; sourceTree = "<group>"; };
 		12310AC11444AC0C006AC6AF /* MakeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakeViewController.h; sourceTree = "<group>"; };
 		12310AC21444AC0C006AC6AF /* MakeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakeViewController.m; sourceTree = "<group>"; };
+		1243AEFC15530ADE004D07FA /* YearViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YearViewController.h; sourceTree = "<group>"; };
+		1243AEFD15530ADE004D07FA /* YearViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YearViewController.m; sourceTree = "<group>"; };
+		127B0864155330B10031AF8C /* KSDIdlingWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSDIdlingWindow.h; sourceTree = "<group>"; };
+		127B0865155330B10031AF8C /* KSDIdlingWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSDIdlingWindow.m; sourceTree = "<group>"; };
 		127F375D14559D82006C9046 /* CartItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartItem.h; sourceTree = "<group>"; };
 		127F375E14559D82006C9046 /* CartItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartItem.m; sourceTree = "<group>"; };
 		127F37661455E4DA006C9046 /* CartListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartListController.h; sourceTree = "<group>"; };
@@ -127,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				120F8B26155197E000A7C43C /* MediaPlayer.framework in Frameworks */,
 				128C391914473E5F00E8227C /* QuartzCore.framework in Frameworks */,
 				129B1315143F41BC001239AA /* UIKit.framework in Frameworks */,
 				129B1317143F41BC001239AA /* Foundation.framework in Frameworks */,
@@ -167,6 +177,7 @@
 		129B1305143F41BB001239AA = {
 			isa = PBXGroup;
 			children = (
+				120F8B25155197E000A7C43C /* MediaPlayer.framework */,
 				12A6C139144CC2E600A979B3 /* Default-Landscape~ipad.png */,
 				12A6C12F144C7BE400A979B3 /* Settings.bundle */,
 				128C391014463F4200E8227C /* curt-logo-72x72.png */,
@@ -225,6 +236,10 @@
 				12AF223E1445F64000F8C477 /* PartDetailController.m */,
 				127F37661455E4DA006C9046 /* CartListController.h */,
 				127F37671455E4DA006C9046 /* CartListController.m */,
+				1243AEFC15530ADE004D07FA /* YearViewController.h */,
+				1243AEFD15530ADE004D07FA /* YearViewController.m */,
+				127B0864155330B10031AF8C /* KSDIdlingWindow.h */,
+				127B0865155330B10031AF8C /* KSDIdlingWindow.m */,
 			);
 			path = AlexKiosk;
 			sourceTree = "<group>";
@@ -232,6 +247,7 @@
 		129B131B143F41BC001239AA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				120F8B2815519A9F00A7C43C /* Sema2011_CurtMfg.mp4 */,
 				12DC335B1459CA1D00AA6137 /* checkout_button_down.png */,
 				12DC335C1459CA1D00AA6137 /* checkout_button.png */,
 				12DC33511459C58E00AA6137 /* delete_button_down.png */,
@@ -390,6 +406,8 @@
 				127F37681455E4DA006C9046 /* CartListController.m in Sources */,
 				12DC3362145B109400AA6137 /* KioskOrder.m in Sources */,
 				12DC3365145B120100AA6137 /* KioskOrderItem.m in Sources */,
+				1243AEFE15530ADE004D07FA /* YearViewController.m in Sources */,
+				127B0866155330B10031AF8C /* KSDIdlingWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,7 +485,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: P.J. McGinley (X5PXMVKAQM)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Patrick McGinley (LDYDA4BUZ3)";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -479,7 +498,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "AlexKiosk/AlexKiosk-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "535AAD22-1D11-4DF4-BAF9-848468F342C7";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D38FAF9B-B765-424A-AEC3-3B217F222420";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -488,7 +507,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -499,7 +519,6 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "AlexKiosk/AlexKiosk-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -531,7 +550,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -542,7 +561,6 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "AlexKiosk/AlexKiosk-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Distribution;

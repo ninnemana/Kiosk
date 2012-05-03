@@ -17,8 +17,7 @@
 
 @synthesize detailViewController;
 @synthesize modelTableView;
-@synthesize year;
-@synthesize make;
+@synthesize mount, year, make;
 
 NSMutableArray *modelList;
 
@@ -59,7 +58,8 @@ NSMutableArray *modelList;
 {
     modelList = [[NSMutableArray alloc] init];
     
-    NSString *model_query = [NSString stringWithFormat:@"http://docs.curthitch.biz/api/getmodel?dataType=JSON&year=%@&make=%@",
+    NSString *model_query = [NSString stringWithFormat:@"http://api.curtmfg.com/v2/getmodel?dataType=JSON&mount=%@&year=%@&make=%@",
+                             [mount encodeString:NSUTF8StringEncoding],
                              [year encodeString:NSUTF8StringEncoding],
                              [make encodeString:NSUTF8StringEncoding]];
     
@@ -167,6 +167,7 @@ NSMutableArray *modelList;
     
     // Gain reference to the next level and push the view to it
     StyleViewController *styleViewController = [[StyleViewController alloc]init];
+    styleViewController.mount = mount;
     styleViewController.year = year;
     styleViewController.make = make;
     styleViewController.model = vehicle_model;

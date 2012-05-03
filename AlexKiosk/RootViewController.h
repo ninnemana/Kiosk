@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 @protocol SubstitutableDetailViewController
 - (void)showRootPopoverButtonItem:(UIBarButtonItem *)barButtonItem;
@@ -18,10 +19,12 @@
 @interface RootViewController : UITableViewController {
     BOOL *hideBackButton;
 }
-@property (nonatomic, retain) IBOutlet UITableView *yearTableView;
+@property (nonatomic, retain) IBOutlet UITableView *mountTableView;
 		
 @property (nonatomic, retain) IBOutlet DetailViewController *detailViewController;
 
-@property (nonatomic, atomic) BOOL *hideBackButton;
+@property (nonatomic, assign) BOOL *hideBackButton;
+
+-(IBAction)playMovie:(id)sender;
 
 @end

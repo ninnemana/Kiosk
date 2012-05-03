@@ -298,7 +298,7 @@
     
     AlexKioskAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     NSArray *items = [delegate.cartItems allValues];
-    NSDictionary *part;
+    NSDictionary *part = [[NSDictionary alloc] init];
     int i;
     for(i = 0; i < [items count]; i++){
         CartItem *ci = [items objectAtIndex:i];
@@ -311,15 +311,18 @@
     
     PartDetailController *partDetailController = [[PartDetailController alloc] init];
     partDetailController.part = part;
+    
+    
     partDetailController.year = @"";
     partDetailController.make = @"";
     partDetailController.model = @"";
     partDetailController.style = @"";
     detailController = partDetailController;
-    [partDetailController release];
+//    [partDetailController release];
 
     self.splitViewController.viewControllers = [NSArray arrayWithObjects:[self.splitViewController.viewControllers objectAtIndex:0],detailController, nil];
-    
+    [part release];
+    [partDetailController release];
 }
 
 - (void)deleteCartItem:(id)sender{

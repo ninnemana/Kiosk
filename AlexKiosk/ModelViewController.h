@@ -11,6 +11,7 @@
 @class DetailViewController;
 
 @interface ModelViewController : UITableViewController {
+    NSString *mount;
     NSString *year;
     NSString *make;
 }
@@ -18,6 +19,8 @@
 @property (nonatomic, retain) IBOutlet UITableView *modelTableView;
 
 @property (nonatomic, retain) IBOutlet DetailViewController *detailViewController;
+
+@property (nonatomic, retain) NSString *mount;
 
 @property (nonatomic, retain) NSString *year;
 

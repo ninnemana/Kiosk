@@ -10,6 +10,7 @@
 
 @interface PartDetailController : UIViewController{
     NSDictionary *part;
+    NSString *mount;
     NSString *year;
     NSString *make;
     NSString *model;
@@ -18,6 +19,8 @@
 }
 
 @property (nonatomic, retain) NSDictionary *part;
+
+@property (nonatomic, retain) NSString *mount;
 
 @property (nonatomic, retain) NSString *year;
 

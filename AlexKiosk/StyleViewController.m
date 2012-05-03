@@ -16,9 +16,7 @@
 
 @implementation StyleViewController
 @synthesize detailViewController;
-@synthesize year;
-@synthesize make;
-@synthesize model;
+@synthesize mount, year, make, model;
 
 NSMutableArray *styleList;
 
@@ -65,7 +63,8 @@ NSMutableArray *styleList;
     styleList = [[NSMutableArray alloc] init];
     
     // Create our string from vehicle data
-    NSString *style_query = [NSString stringWithFormat:@"http://docs.curthitch.biz/api/getstyle?dataType=JSON&year=%@&make=%@&model=%@",
+    NSString *style_query = [NSString stringWithFormat:@"http://api.curtmfg.com/v2/getstyle?dataType=JSON&mount=%@&year=%@&make=%@&model=%@",
+                             [mount encodeString:NSUTF8StringEncoding],
                              [year encodeString:NSUTF8StringEncoding],
                              [make encodeString:NSUTF8StringEncoding],
                              [model encodeString:NSUTF8StringEncoding]];
@@ -179,6 +178,7 @@ NSMutableArray *styleList;
     
     // Gain reference to the next level and push the view to it
     PartViewController *partsViewController = [[PartViewController alloc]init];
+    partsViewController.mount = mount;
     partsViewController.year = year;
     partsViewController.make = make;
     partsViewController.model = model;
