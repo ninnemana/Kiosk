@@ -7,6 +7,8 @@
 //
 
 #import "KSDIdlingWindow.h"
+#import "AlexKioskAppDelegate.h"
+#import "VideoViewController.h"
 
 NSString * const KSDIdlingWindowIdleNotification   = @"KSDIdlingWindowIdleNotification";
 NSString * const KSDIdlingWindowActiveNotification = @"KSDIdlingWindowActiveNotification";
@@ -18,9 +20,10 @@ NSString * const KSDIdlingWindowActiveNotification = @"KSDIdlingWindowActiveNoti
 
 @end
 
+#define maxIdleTime 60.0
 
 @implementation KSDIdlingWindow
-@synthesize idleTimer, idleTimeInterval;
+@synthesize idleTimer, idleTimeInterval, rootViewController;
 
 - (id) initWithFrame:(CGRect)frame {
 	self = [super initWithFrame:frame];
@@ -35,40 +38,31 @@ NSString * const KSDIdlingWindowActiveNotification = @"KSDIdlingWindowActiveNoti
     [super sendEvent:event];
     
     NSSet *allTouches = [event allTouches];
-    if ([allTouches count] > 0) {
+    //if ([allTouches count] > 0) {
         
-		// To reduce timer resets only reset the timer on a Began or Ended touch.
+        // To reduce timer resets only reset the timer on a Began or Ended touch.
         UITouchPhase phase = ((UITouch *)[allTouches anyObject]).phase;
-		if (phase == UITouchPhaseBegan || phase == UITouchPhaseEnded) {
-			if (!idleTimer) {
-				[self windowActiveNotification];
-			} else {
-				[idleTimer invalidate];
-			}
-			if (idleTimeInterval != 0) {
-				self.idleTimer = [NSTimer scheduledTimerWithTimeInterval:idleTimeInterval 
-																  target:self 
-																selector:@selector(windowIdleNotification) 
-																userInfo:nil repeats:NO];
-			}
-		}
-	}
+        if (phase == UITouchPhaseBegan || phase == UITouchPhaseEnded) {
+            [self resetIdleTimer];
+        }
+    //}
 }
 
-
-- (void)windowIdleNotification {
-	NSNotificationCenter *dnc = [NSNotificationCenter defaultCenter];
-	[dnc postNotificationName:KSDIdlingWindowIdleNotification 
-					   object:self
-					 userInfo:nil];
-	self.idleTimer = nil;
+- (void)resetIdleTimer{
+    if(idleTimer){
+        [idleTimer invalidate];
+        [idleTimer release];
+    }
+    idleTimer = [[NSTimer scheduledTimerWithTimeInterval:maxIdleTime target:self selector:@selector(idleTimerExceeded) userInfo:nil repeats:NO] retain];
 }
 
-- (void)windowActiveNotification {
-	NSNotificationCenter *dnc = [NSNotificationCenter defaultCenter];
-	[dnc postNotificationName:KSDIdlingWindowActiveNotification 
-					   object:self
-					 userInfo:nil];
+- (void)idleTimerExceeded{
+    NSLog(@"idle time exceeded");
+    
+    VideoViewController *videoController = [[VideoViewController alloc] initWithNibName:@"VideoView" bundle:nil];
+    
+    AlexKioskAppDelegate *delegate = (AlexKioskAppDelegate *)[[UIApplication sharedApplication] delegate];
+    [delegate.splitViewController.view addSubview:videoController.view];
 }
 
 - (void)dealloc {

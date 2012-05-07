@@ -16,6 +16,16 @@
 		12235CC51458B5E300CD7FE2 /* selected_hitch_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 12235CC11458B5E200CD7FE2 /* selected_hitch_bg.png */; };
 		12235CC61458B5E300CD7FE2 /* selected_wiring_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 12235CC21458B5E200CD7FE2 /* selected_wiring_bg.png */; };
 		12235CC71458B5E300CD7FE2 /* wiring_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 12235CC31458B5E200CD7FE2 /* wiring_bg.png */; };
+		12271CE215586FEC00CC2E27 /* Company_Vision_HD.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 12271CD815586FEC00CC2E27 /* Company_Vision_HD.mp4 */; };
+		12271CE315586FEC00CC2E27 /* Detroit_HD.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 12271CD915586FEC00CC2E27 /* Detroit_HD.mp4 */; };
+		12271CE415586FEC00CC2E27 /* Distribution_HD.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 12271CDA15586FEC00CC2E27 /* Distribution_HD.mp4 */; };
+		12271CE515586FEC00CC2E27 /* Electrical_HD.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 12271CDB15586FEC00CC2E27 /* Electrical_HD.mp4 */; };
+		12271CE615586FEC00CC2E27 /* Engineering_HD.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 12271CDC15586FEC00CC2E27 /* Engineering_HD.mp4 */; };
+		12271CE715586FEC00CC2E27 /* Fabrication_HD.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 12271CDD15586FEC00CC2E27 /* Fabrication_HD.mp4 */; };
+		12271CE815586FEC00CC2E27 /* Finishing_HD.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 12271CDE15586FEC00CC2E27 /* Finishing_HD.mp4 */; };
+		12271CE915586FEC00CC2E27 /* First_to_Market_HD.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 12271CDF15586FEC00CC2E27 /* First_to_Market_HD.mp4 */; };
+		12271CEA15586FEC00CC2E27 /* Quality_HD.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 12271CE015586FEC00CC2E27 /* Quality_HD.mp4 */; };
+		12271CEB15586FEC00CC2E27 /* Welding_HD.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 12271CE115586FEC00CC2E27 /* Welding_HD.mp4 */; };
 		12310AC31444AC0C006AC6AF /* MakeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12310AC21444AC0C006AC6AF /* MakeViewController.m */; };
 		1243AEFE15530ADE004D07FA /* YearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1243AEFD15530ADE004D07FA /* YearViewController.m */; };
 		127B0866155330B10031AF8C /* KSDIdlingWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 127B0865155330B10031AF8C /* KSDIdlingWindow.m */; };
@@ -46,6 +56,9 @@
 		12A6C13E144DBCBF00A979B3 /* accessories-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 12A6C13D144DBCBF00A979B3 /* accessories-30.png */; };
 		12AF223F1445F64000F8C477 /* PartDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AF223E1445F64000F8C477 /* PartDetailController.m */; };
 		12AF22431446208900F8C477 /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AF22421446208900F8C477 /* AsyncImageView.m */; };
+		12C9D74F15547FA100559CCA /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C9D74E15547FA100559CCA /* VideoViewController.m */; };
+		12C9D75215581A1500559CCA /* VideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12C9D75115581A1500559CCA /* VideoView.xib */; };
+		12C9D7541558217400559CCA /* Sema.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 12C9D7531558217400559CCA /* Sema.mp4 */; };
 		12DB65C814447BA200ACC4A5 /* PartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DB65C714447BA200ACC4A5 /* PartViewController.m */; };
 		12DC33571459C58E00AA6137 /* delete_button_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 12DC33511459C58E00AA6137 /* delete_button_down.png */; };
 		12DC33581459C58E00AA6137 /* delete_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 12DC33521459C58E00AA6137 /* delete_button.png */; };
@@ -59,7 +72,6 @@
 
 /* Begin PBXFileReference section */
 		120F8B25155197E000A7C43C /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		120F8B2815519A9F00A7C43C /* Sema2011_CurtMfg.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = Sema2011_CurtMfg.mp4; path = ../../../../Dropbox/Video/Sema2011_CurtMfg.mp4; sourceTree = "<group>"; };
 		12235CA81458755D00CD7FE2 /* ATV.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ATV.jpg; sourceTree = "<group>"; };
 		12235CA91458755D00CD7FE2 /* Biker.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Biker.jpg; sourceTree = "<group>"; };
 		12235CAA1458755D00CD7FE2 /* Fish.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fish.jpg; sourceTree = "<group>"; };
@@ -68,6 +80,16 @@
 		12235CC11458B5E200CD7FE2 /* selected_hitch_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = selected_hitch_bg.png; path = partview_labels/selected_hitch_bg.png; sourceTree = "<group>"; };
 		12235CC21458B5E200CD7FE2 /* selected_wiring_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = selected_wiring_bg.png; path = partview_labels/selected_wiring_bg.png; sourceTree = "<group>"; };
 		12235CC31458B5E200CD7FE2 /* wiring_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wiring_bg.png; path = partview_labels/wiring_bg.png; sourceTree = "<group>"; };
+		12271CD815586FEC00CC2E27 /* Company_Vision_HD.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Company_Vision_HD.mp4; sourceTree = "<group>"; };
+		12271CD915586FEC00CC2E27 /* Detroit_HD.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Detroit_HD.mp4; sourceTree = "<group>"; };
+		12271CDA15586FEC00CC2E27 /* Distribution_HD.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Distribution_HD.mp4; sourceTree = "<group>"; };
+		12271CDB15586FEC00CC2E27 /* Electrical_HD.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Electrical_HD.mp4; sourceTree = "<group>"; };
+		12271CDC15586FEC00CC2E27 /* Engineering_HD.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Engineering_HD.mp4; sourceTree = "<group>"; };
+		12271CDD15586FEC00CC2E27 /* Fabrication_HD.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fabrication_HD.mp4; sourceTree = "<group>"; };
+		12271CDE15586FEC00CC2E27 /* Finishing_HD.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Finishing_HD.mp4; sourceTree = "<group>"; };
+		12271CDF15586FEC00CC2E27 /* First_to_Market_HD.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = First_to_Market_HD.mp4; sourceTree = "<group>"; };
+		12271CE015586FEC00CC2E27 /* Quality_HD.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Quality_HD.mp4; sourceTree = "<group>"; };
+		12271CE115586FEC00CC2E27 /* Welding_HD.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Welding_HD.mp4; sourceTree = "<group>"; };
 		12310AC11444AC0C006AC6AF /* MakeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakeViewController.h; sourceTree = "<group>"; };
 		12310AC21444AC0C006AC6AF /* MakeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakeViewController.m; sourceTree = "<group>"; };
 		1243AEFC15530ADE004D07FA /* YearViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YearViewController.h; sourceTree = "<group>"; };
@@ -117,6 +139,10 @@
 		12AF223E1445F64000F8C477 /* PartDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartDetailController.m; sourceTree = "<group>"; };
 		12AF22411446208900F8C477 /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
 		12AF22421446208900F8C477 /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
+		12C9D74D15547FA100559CCA /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
+		12C9D74E15547FA100559CCA /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
+		12C9D75115581A1500559CCA /* VideoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoView.xib; sourceTree = "<group>"; };
+		12C9D7531558217400559CCA /* Sema.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sema.mp4; sourceTree = "<group>"; };
 		12DB65C614447BA200ACC4A5 /* PartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PartViewController.h; sourceTree = "<group>"; };
 		12DB65C714447BA200ACC4A5 /* PartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PartViewController.m; sourceTree = "<group>"; };
 		12DC33511459C58E00AA6137 /* delete_button_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = delete_button_down.png; path = buttons/delete_button_down.png; sourceTree = "<group>"; };
@@ -209,6 +235,7 @@
 		129B131A143F41BC001239AA /* AlexKiosk */ = {
 			isa = PBXGroup;
 			children = (
+				12C9D75515584F4100559CCA /* Videos */,
 				12DC335F145B107B00AA6137 /* KioskOrder */,
 				127F375B14559C62006C9046 /* CartItem */,
 				128C391A1447455B00E8227C /* NSStringEncoding */,
@@ -240,6 +267,9 @@
 				1243AEFD15530ADE004D07FA /* YearViewController.m */,
 				127B0864155330B10031AF8C /* KSDIdlingWindow.h */,
 				127B0865155330B10031AF8C /* KSDIdlingWindow.m */,
+				12C9D74D15547FA100559CCA /* VideoViewController.h */,
+				12C9D74E15547FA100559CCA /* VideoViewController.m */,
+				12C9D75115581A1500559CCA /* VideoView.xib */,
 			);
 			path = AlexKiosk;
 			sourceTree = "<group>";
@@ -247,7 +277,6 @@
 		129B131B143F41BC001239AA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				120F8B2815519A9F00A7C43C /* Sema2011_CurtMfg.mp4 */,
 				12DC335B1459CA1D00AA6137 /* checkout_button_down.png */,
 				12DC335C1459CA1D00AA6137 /* checkout_button.png */,
 				12DC33511459C58E00AA6137 /* delete_button_down.png */,
@@ -291,6 +320,24 @@
 				12AF22421446208900F8C477 /* AsyncImageView.m */,
 			);
 			name = AsyncImageVIew;
+			sourceTree = "<group>";
+		};
+		12C9D75515584F4100559CCA /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				12271CD815586FEC00CC2E27 /* Company_Vision_HD.mp4 */,
+				12271CD915586FEC00CC2E27 /* Detroit_HD.mp4 */,
+				12271CDA15586FEC00CC2E27 /* Distribution_HD.mp4 */,
+				12271CDB15586FEC00CC2E27 /* Electrical_HD.mp4 */,
+				12271CDC15586FEC00CC2E27 /* Engineering_HD.mp4 */,
+				12271CDD15586FEC00CC2E27 /* Fabrication_HD.mp4 */,
+				12271CDE15586FEC00CC2E27 /* Finishing_HD.mp4 */,
+				12271CDF15586FEC00CC2E27 /* First_to_Market_HD.mp4 */,
+				12271CE015586FEC00CC2E27 /* Quality_HD.mp4 */,
+				12271CE115586FEC00CC2E27 /* Welding_HD.mp4 */,
+				12C9D7531558217400559CCA /* Sema.mp4 */,
+			);
+			name = Videos;
 			sourceTree = "<group>";
 		};
 		12DC335F145B107B00AA6137 /* KioskOrder */ = {
@@ -379,6 +426,18 @@
 				12DC335A1459C58E00AA6137 /* details_button.png in Resources */,
 				12DC335D1459CA1D00AA6137 /* checkout_button_down.png in Resources */,
 				12DC335E1459CA1D00AA6137 /* checkout_button.png in Resources */,
+				12C9D75215581A1500559CCA /* VideoView.xib in Resources */,
+				12C9D7541558217400559CCA /* Sema.mp4 in Resources */,
+				12271CE215586FEC00CC2E27 /* Company_Vision_HD.mp4 in Resources */,
+				12271CE315586FEC00CC2E27 /* Detroit_HD.mp4 in Resources */,
+				12271CE415586FEC00CC2E27 /* Distribution_HD.mp4 in Resources */,
+				12271CE515586FEC00CC2E27 /* Electrical_HD.mp4 in Resources */,
+				12271CE615586FEC00CC2E27 /* Engineering_HD.mp4 in Resources */,
+				12271CE715586FEC00CC2E27 /* Fabrication_HD.mp4 in Resources */,
+				12271CE815586FEC00CC2E27 /* Finishing_HD.mp4 in Resources */,
+				12271CE915586FEC00CC2E27 /* First_to_Market_HD.mp4 in Resources */,
+				12271CEA15586FEC00CC2E27 /* Quality_HD.mp4 in Resources */,
+				12271CEB15586FEC00CC2E27 /* Welding_HD.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +467,7 @@
 				12DC3365145B120100AA6137 /* KioskOrderItem.m in Sources */,
 				1243AEFE15530ADE004D07FA /* YearViewController.m in Sources */,
 				127B0866155330B10031AF8C /* KSDIdlingWindow.m in Sources */,
+				12C9D74F15547FA100559CCA /* VideoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

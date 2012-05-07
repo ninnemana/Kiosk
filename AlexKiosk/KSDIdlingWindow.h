@@ -8,13 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@class RootViewController;
+
 extern NSString * const KSDIdlingWindowIdleNotification;
 extern NSString * const KSDIdlingWindowActiveNotification;
 
-@interface KSDIdlingWindow : UIWindow {
+@interface KSDIdlingWindow : UIApplication {
 	NSTimer *idleTimer;
 	NSTimeInterval idleTimeInterval;
 }
+
+@property (nonatomic, retain) IBOutlet RootViewController *rootViewController;
 
 @property (assign) NSTimeInterval idleTimeInterval;
 
