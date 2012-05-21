@@ -73,7 +73,7 @@ NSMutableArray *partList;
         NSArray *parts = [unsorted_parts sortedArrayUsingDescriptors:descriptors];
         
         int i;
-        for(i = 0; i < [parts count]; i++){
+        for(i = ([parts count] - 1); i != -1; i--){
             [partList addObject:[parts objectAtIndex:i]];
         }
         

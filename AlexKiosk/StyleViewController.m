@@ -134,6 +134,8 @@ NSMutableArray *styleList;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell.textLabel.lineBreakMode = UILineBreakModeWordWrap;
+        cell.textLabel.numberOfLines = 0;
     }
     
     // Configure the cell.
@@ -154,7 +156,7 @@ NSMutableArray *styleList;
     [bgColorView setBackgroundColor:[self colorWithHexString:@"ff581c"]];
     
     // Create new UILabel
-    UILabel *selectedCell = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 300, 20)];
+    UILabel *selectedCell = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 300, 120)];
     [selectedCell setTextColor:[self colorWithHexString:@"343434"]];
     [selectedCell setBackgroundColor:[self colorWithHexString:@"ff581c"]];
     

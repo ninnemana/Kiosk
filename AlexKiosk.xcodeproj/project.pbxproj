@@ -505,7 +505,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Patrick McGinley (LDYDA4BUZ3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Patrick McGinley (LDYDA4BUZ3)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
@@ -515,8 +516,11 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "CURT POP Kiosk";
+				PROVISIONING_PROFILE = "D38FAF9B-B765-424A-AEC3-3B217F222420";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D38FAF9B-B765-424A-AEC3-3B217F222420";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				SDKROOT = iphoneos;
+				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
@@ -525,8 +529,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: P.J. McGinley";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Patrick McGinley (LDYDA4BUZ3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Patrick McGinley (LDYDA4BUZ3)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -534,9 +538,11 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "CURT POP Kiosk";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A0571620-F669-4FAD-8763-1CC6EA142447";
+				PROVISIONING_PROFILE = "D38FAF9B-B765-424A-AEC3-3B217F222420";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D38FAF9B-B765-424A-AEC3-3B217F222420";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
@@ -546,7 +552,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Patrick McGinley (LDYDA4BUZ3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -558,7 +564,6 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "AlexKiosk/AlexKiosk-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D38FAF9B-B765-424A-AEC3-3B217F222420";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -567,8 +572,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CURT Manufacturing, LLC";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CURT Manufacturing, LLC";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -579,6 +584,8 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "AlexKiosk/AlexKiosk-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "F3EF70EB-A803-4C02-BD30-32A900602CC4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F3EF70EB-A803-4C02-BD30-32A900602CC4";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -588,8 +595,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: P.J. McGinley";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: P.J. McGinley";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Patrick McGinley (LDYDA4BUZ3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Patrick McGinley (LDYDA4BUZ3)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -597,10 +604,11 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "CURT POP Kiosk";
-				PROVISIONING_PROFILE = "A0571620-F669-4FAD-8763-1CC6EA142447";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A0571620-F669-4FAD-8763-1CC6EA142447";
+				PROVISIONING_PROFILE = "D38FAF9B-B765-424A-AEC3-3B217F222420";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D38FAF9B-B765-424A-AEC3-3B217F222420";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				SDKROOT = iphoneos;
+				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Distribution;
@@ -609,8 +617,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CURT Manufacturing, LLC";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CURT Manufacturing, LLC";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -621,6 +629,8 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "AlexKiosk/AlexKiosk-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "F3EF70EB-A803-4C02-BD30-32A900602CC4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F3EF70EB-A803-4C02-BD30-32A900602CC4";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Distribution;
