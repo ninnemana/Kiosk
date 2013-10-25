@@ -18,7 +18,7 @@
 - (IBAction)playMovie:(id)sender{
 //    UIButton *playButton = (UIButton *)sender;
     
-    NSMutableArray *vidArray = [[[NSMutableArray alloc] initWithObjects:@"Company_Vision_HD", @"Detroit_HD", @"Distribution_HD", @"Electrical_HD", @"Engineering_HD", @"Fabrication_HD",@"Finishing_HD", @"First_to_Market_HD", @"Quality_HD", @"Welding_HD", @"Sema", nil] autorelease];
+    NSMutableArray *vidArray = [[[NSMutableArray alloc] initWithObjects:@"Company_Vision_HD", @"Detroit_HD", @"Distribution_HD", @"Electrical_HD", @"Engineering_HD", @"Fabrication_HD", @"Finishing_HD", @"First_to_Market_HD", @"Quality_HD", @"Welding_HD", @"Sema", nil] autorelease];
     
     NSUInteger randomIndex = arc4random() % [vidArray count];
     NSString *filepath = [[NSBundle mainBundle] pathForResource:[vidArray objectAtIndex:randomIndex] ofType:@"mp4" inDirectory:nil];

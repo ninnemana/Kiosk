@@ -20,7 +20,7 @@ NSString * const KSDIdlingWindowActiveNotification = @"KSDIdlingWindowActiveNoti
 
 @end
 
-#define maxIdleTime 90000.0
+#define maxIdleTime 60.0
 
 @implementation KSDApplication
 @synthesize idleTimer, idleTimeInterval;

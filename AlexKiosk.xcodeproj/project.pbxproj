@@ -13,6 +13,17 @@
 		129B1317143F41BC001239AA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 129B1316143F41BC001239AA /* Foundation.framework */; };
 		129B1319143F41BC001239AA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 129B1318143F41BC001239AA /* CoreGraphics.framework */; };
 		12A6C13A144CC2E600A979B3 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 12A6C139144CC2E600A979B3 /* Default-Landscape~ipad.png */; };
+		196BFF0C181AC6C800DE886F /* Company_Vision_HD.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 196BFF01181AC6C800DE886F /* Company_Vision_HD.mp4 */; };
+		196BFF0D181AC6C800DE886F /* Detroit_HD.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 196BFF02181AC6C800DE886F /* Detroit_HD.mp4 */; };
+		196BFF0E181AC6C800DE886F /* Distribution_HD.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 196BFF03181AC6C800DE886F /* Distribution_HD.mp4 */; };
+		196BFF0F181AC6C800DE886F /* Electrical_HD.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 196BFF04181AC6C800DE886F /* Electrical_HD.mp4 */; };
+		196BFF10181AC6C800DE886F /* Engineering_HD.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 196BFF05181AC6C800DE886F /* Engineering_HD.mp4 */; };
+		196BFF11181AC6C800DE886F /* Fabrication_HD.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 196BFF06181AC6C800DE886F /* Fabrication_HD.mp4 */; };
+		196BFF12181AC6C800DE886F /* Finishing_HD.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 196BFF07181AC6C800DE886F /* Finishing_HD.mp4 */; };
+		196BFF13181AC6C800DE886F /* First_to_Market_HD.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 196BFF08181AC6C800DE886F /* First_to_Market_HD.mp4 */; };
+		196BFF14181AC6C800DE886F /* Quality_HD.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 196BFF09181AC6C800DE886F /* Quality_HD.mp4 */; };
+		196BFF15181AC6C800DE886F /* Sema.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 196BFF0A181AC6C800DE886F /* Sema.mp4 */; };
+		196BFF16181AC6C800DE886F /* Welding_HD.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 196BFF0B181AC6C800DE886F /* Welding_HD.mp4 */; };
 		19FFA20218130E85004E6BF0 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 19FFA20018130E85004E6BF0 /* Icon-72.png */; };
 		19FFA20318130E85004E6BF0 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19FFA20118130E85004E6BF0 /* Icon-72@2x.png */; };
 		19FFA20C181888D6004E6BF0 /* KSDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FFA209181888D6004E6BF0 /* KSDAppDelegate.m */; };
@@ -71,6 +82,17 @@
 		129B1316143F41BC001239AA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		129B1318143F41BC001239AA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		12A6C139144CC2E600A979B3 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		196BFF01181AC6C800DE886F /* Company_Vision_HD.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Company_Vision_HD.mp4; sourceTree = "<group>"; };
+		196BFF02181AC6C800DE886F /* Detroit_HD.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Detroit_HD.mp4; sourceTree = "<group>"; };
+		196BFF03181AC6C800DE886F /* Distribution_HD.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Distribution_HD.mp4; sourceTree = "<group>"; };
+		196BFF04181AC6C800DE886F /* Electrical_HD.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Electrical_HD.mp4; sourceTree = "<group>"; };
+		196BFF05181AC6C800DE886F /* Engineering_HD.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Engineering_HD.mp4; sourceTree = "<group>"; };
+		196BFF06181AC6C800DE886F /* Fabrication_HD.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fabrication_HD.mp4; sourceTree = "<group>"; };
+		196BFF07181AC6C800DE886F /* Finishing_HD.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Finishing_HD.mp4; sourceTree = "<group>"; };
+		196BFF08181AC6C800DE886F /* First_to_Market_HD.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = First_to_Market_HD.mp4; sourceTree = "<group>"; };
+		196BFF09181AC6C800DE886F /* Quality_HD.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Quality_HD.mp4; sourceTree = "<group>"; };
+		196BFF0A181AC6C800DE886F /* Sema.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sema.mp4; sourceTree = "<group>"; };
+		196BFF0B181AC6C800DE886F /* Welding_HD.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Welding_HD.mp4; sourceTree = "<group>"; };
 		19FFA20018130E85004E6BF0 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		19FFA20118130E85004E6BF0 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
 		19FFA208181888D6004E6BF0 /* KSDAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KSDAppDelegate.h; path = Classes/KSDAppDelegate.h; sourceTree = "<group>"; };
@@ -197,6 +219,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		196BFF00181AC6C800DE886F /* videos */ = {
+			isa = PBXGroup;
+			children = (
+				196BFF01181AC6C800DE886F /* Company_Vision_HD.mp4 */,
+				196BFF02181AC6C800DE886F /* Detroit_HD.mp4 */,
+				196BFF03181AC6C800DE886F /* Distribution_HD.mp4 */,
+				196BFF04181AC6C800DE886F /* Electrical_HD.mp4 */,
+				196BFF05181AC6C800DE886F /* Engineering_HD.mp4 */,
+				196BFF06181AC6C800DE886F /* Fabrication_HD.mp4 */,
+				196BFF07181AC6C800DE886F /* Finishing_HD.mp4 */,
+				196BFF08181AC6C800DE886F /* First_to_Market_HD.mp4 */,
+				196BFF09181AC6C800DE886F /* Quality_HD.mp4 */,
+				196BFF0A181AC6C800DE886F /* Sema.mp4 */,
+				196BFF0B181AC6C800DE886F /* Welding_HD.mp4 */,
+			);
+			path = videos;
+			sourceTree = "<group>";
+		};
 		19FFA20418188745004E6BF0 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +267,7 @@
 		19FFA21818188AA1004E6BF0 /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				196BFF00181AC6C800DE886F /* videos */,
 				19FFA21C18188AA1004E6BF0 /* buttons */,
 				19FFA22718188AA1004E6BF0 /* partview_labels */,
 				19FFA23118188AA1004E6BF0 /* Settings.bundle */,
@@ -403,8 +444,13 @@
 				19FFA20318130E85004E6BF0 /* Icon-72@2x.png in Resources */,
 				19FFA215181889EF004E6BF0 /* DetailView.xib in Resources */,
 				19FFA216181889EF004E6BF0 /* InfoPlist.strings in Resources */,
+				196BFF15181AC6C800DE886F /* Sema.mp4 in Resources */,
+				196BFF10181AC6C800DE886F /* Engineering_HD.mp4 in Resources */,
 				19FFA217181889EF004E6BF0 /* MainWindow.xib in Resources */,
+				196BFF12181AC6C800DE886F /* Finishing_HD.mp4 in Resources */,
 				19FFA23618188AA1004E6BF0 /* ATV.jpg in Resources */,
+				196BFF13181AC6C800DE886F /* First_to_Market_HD.mp4 in Resources */,
+				196BFF0D181AC6C800DE886F /* Detroit_HD.mp4 in Resources */,
 				19FFA23718188AA1004E6BF0 /* Biker.jpg in Resources */,
 				19FFA23818188AA1004E6BF0 /* checkout_button.png in Resources */,
 				19FFA23918188AA1004E6BF0 /* checkout_button_down.png in Resources */,
@@ -418,11 +464,17 @@
 				19FFA24218188AA1004E6BF0 /* hitch_bg.png in Resources */,
 				19FFA24718188AA1004E6BF0 /* selected_hitch_bg.png in Resources */,
 				19FFA24818188AA1004E6BF0 /* selected_wiring_bg.png in Resources */,
+				196BFF0C181AC6C800DE886F /* Company_Vision_HD.mp4 in Resources */,
 				19FFA24918188AA1004E6BF0 /* wiring_bg.png in Resources */,
+				196BFF0F181AC6C800DE886F /* Electrical_HD.mp4 in Resources */,
 				19FFA24A18188AA1004E6BF0 /* Settings.bundle in Resources */,
 				19FFA24B18188AA1004E6BF0 /* accessories-30.png in Resources */,
+				196BFF0E181AC6C800DE886F /* Distribution_HD.mp4 in Resources */,
 				19FFA24C18188AA1004E6BF0 /* hitches-30.png in Resources */,
 				19FFA28318188BC3004E6BF0 /* VideoView.xib in Resources */,
+				196BFF16181AC6C800DE886F /* Welding_HD.mp4 in Resources */,
+				196BFF14181AC6C800DE886F /* Quality_HD.mp4 in Resources */,
+				196BFF11181AC6C800DE886F /* Fabrication_HD.mp4 in Resources */,
 				19FFA29A1818FFCB004E6BF0 /* close_button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
