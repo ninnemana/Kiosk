@@ -17,6 +17,7 @@
 #import "NSString_Encode.h"
 #import "UIColorExtensions.h"
 #import "CartItem.h"
+#import "AsyncImageView.h"
 #import <QuartzCore/QuartzCore.h>
 
 @implementation CartListController
@@ -73,8 +74,7 @@
 
         CartItem *item = [cartItems objectAtIndex:i];
         NSDictionary *part = item.part;
-        
-        
+
         // Increment our item count;
         itemCount = [NSNumber numberWithInt:[itemCount intValue] + [item.quantity intValue]];
         
@@ -93,45 +93,52 @@
         label.lineBreakMode = UILineBreakModeWordWrap;
         [view addSubview:label];
         [label release];
-        
-        NSError *err = nil;
-        NSURLResponse *resp = nil;
-        NSMutableURLRequest *req = [[[NSMutableURLRequest alloc] init] autorelease];
-        [req setURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://docs.curthitch.biz/masterlibrary/%@/images/%@_300x225_a.jpg",[part objectForKey:@"partID"],[part objectForKey:@"partID"]]]];
-        [req setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
-        [req setTimeoutInterval:30];
-        NSData *imgData = [NSURLConnection sendSynchronousRequest:req returningResponse:&resp error:&err];
-        if(!err){
-            UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(40, 80, 150, 150)];
-            [imgView setBackgroundColor:[UIColor whiteColor]];
-            CALayer *imgLayer = [imgView layer];
-            imgLayer.cornerRadius = 4.0;
-            [imgView setImage:[UIImage imageWithData:imgData]];
-            [view addSubview:imgView];
-            [imgView release];
-        }
+
+//        NSError *err = nil;
+//        NSURLResponse *resp = nil;
+//        NSMutableURLRequest *req = [[[NSMutableURLRequest alloc] init] autorelease];
+//        [req setURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://docs.curthitch.biz/masterlibrary/%@/images/%@_300x225_a.jpg",[part objectForKey:@"partID"],[part objectForKey:@"partID"]]]];
+//        [req setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
+//        [req setTimeoutInterval:30];
+//        NSData *imgData = [NSURLConnection sendSynchronousRequest:req returningResponse:&resp error:&err];
+//        if(!err){
+//            UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(40, 80, 150, 150)];
+//            [imgView setBackgroundColor:[UIColor whiteColor]];
+//            CALayer *imgLayer = [imgView layer];
+//            imgLayer.cornerRadius = 4.0;
+//            [imgView setImage:[UIImage imageWithData:imgData]];
+//            [view addSubview:imgView];
+//            [imgView release];
+//        }
+
+		AsyncImageView *imgView = [[AsyncImageView alloc] initWithFrame:CGRectMake(40, 80, 150, 150)];
+		[imgView setBackgroundColor:[UIColor whiteColor]];
+		CALayer *imgLayer = [imgView layer];
+		imgLayer.cornerRadius = 4.0;
+		[imgView loadImageFromURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://docs.curthitch.biz/masterlibrary/%@/images/%@_300x225_a.jpg",[part objectForKey:@"partID"],[part objectForKey:@"partID"]]]];
+		[view addSubview:imgView];
+		[imgView release];
 
         NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
         [formatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
         [formatter setGeneratesDecimalNumbers:TRUE];
-        
-        
+
         NSDecimalNumberHandler *roundingBehavior = [NSDecimalNumberHandler decimalNumberHandlerWithRoundingMode:NSRoundPlain scale:2 raiseOnExactness:FALSE raiseOnOverflow:TRUE raiseOnUnderflow:TRUE raiseOnDivideByZero:TRUE];
-        
+
         UILabel *itemPriceLabel = [[UILabel alloc] initWithFrame:CGRectMake(200, 80, 500, 18)];
         itemPriceLabel.text = [NSString stringWithFormat:@"Item Price: $%@",[[itemPrice decimalNumberByRoundingAccordingToBehavior:roundingBehavior] stringValue]];
         itemPriceLabel.textColor = [UIColor blackColor];
         itemPriceLabel.backgroundColor = [UIColor clearColor];
         [view addSubview:itemPriceLabel];
         [itemPriceLabel release];
-        
+
         UILabel *qty = [[UILabel alloc] initWithFrame:CGRectMake(200, 100, 500, 18)];
         qty.text = [NSString stringWithFormat:@"Quantity: %@",item.quantity];
         qty.textColor = [UIColor blackColor];
         [qty setBackgroundColor:[UIColor clearColor]];
         [view addSubview:qty];
         [qty release];
-        
+
         UILabel *price = [[UILabel alloc] initWithFrame:CGRectMake(200, 120, 500, 18)];
         price.text = [NSString stringWithFormat:@"Line Price: $%@",[[linePrice decimalNumberByRoundingAccordingToBehavior:roundingBehavior] stringValue]];
         price.textColor = [UIColor blackColor];
@@ -227,12 +234,12 @@
     [topSection addSubview:totalPriceLabel];
     [totalPriceLabel release];
     
-    UIButton *checkout = [[UIButton alloc] initWithFrame:CGRectMake(475, 10, 200, 50)];
-    [checkout setBackgroundImage:[UIImage imageNamed:@"checkout_button.png"] forState:UIControlStateNormal];
-    [checkout setBackgroundImage:[UIImage imageNamed:@"checkout_button_down.png"] forState:UIControlEventTouchDown];
-    [checkout addTarget:self action:@selector(checkout:) forControlEvents:UIControlEventTouchUpInside];
-    [topSection addSubview:checkout];
-    [checkout release];
+    checkoutButton = [[UIButton alloc] initWithFrame:CGRectMake(475, 10, 200, 50)];
+    [checkoutButton setBackgroundImage:[UIImage imageNamed:@"checkout_button.png"] forState:UIControlStateNormal];
+    [checkoutButton setBackgroundImage:[UIImage imageNamed:@"checkout_button_down.png"] forState:UIControlEventTouchDown];
+    [checkoutButton addTarget:self action:@selector(checkout:) forControlEvents:UIControlEventTouchUpInside];
+    [topSection addSubview:checkoutButton];
+    [checkoutButton release];
     
     [scrollView addSubview:topSection];
     [topSection release];
@@ -245,7 +252,8 @@
     
 }
 
-- (void) checkout:(id)sender{
+- (void) checkout:(id)sender
+{
     KSDAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     NSMutableDictionary *cartItems = [NSMutableDictionary dictionaryWithDictionary:delegate.cartItems];
     if([cartItems count] > 0){
@@ -265,32 +273,35 @@
         NSString *jsonOrder = [NSString stringWithFormat:@"%@",[order JSONString]];
         [order release];
         
-        NSString *query = [NSString stringWithFormat:@"http://koc.curthitch.biz/KioskOrder/Index?json=%@",[jsonOrder encodeString:NSUTF8StringEncoding]];
-        
-        NSError *err = nil;
-        NSURLResponse *resp = nil;
-        NSMutableURLRequest *req = [[NSMutableURLRequest alloc] init];
-        NSURL *orderURL = [NSURL URLWithString:query];
-        
-        [req setURL:orderURL];
-        [req setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
-        [req setTimeoutInterval:30];
-        
-        NSData *order_data = [NSURLConnection sendSynchronousRequest:req returningResponse:&resp error:&err];
-        [req release];
-        if(err){
-            [self showAlert:@"Failed to submit the order. Please contact a sales associate at the service desk."];
-        }else{
-            NSDictionary *order_response = [[JSONDecoder decoder] objectWithData:order_data];
-            if([order_response objectForKey:@"error"] != (id)[NSNull null] && [[order_response objectForKey:@"error"] length] > 0){
-                [self showAlert:@"Failed to submit the order. Please contact a sale associate at the service desk."];
-            }else{
-                [self showSuccess:[NSString stringWithFormat:@"Order #%@ was submitted. Please contact a sales associate at the checkout counter to fulfill the rest of the order.",[order_response objectForKey:@"orderID"]]];
-            }
-        }
-    }
-    
+        NSString *query = [NSString stringWithFormat:@"http://koc.curthitch.biz/KioskOrder/Index?json=%@", [jsonOrder encodeString:NSUTF8StringEncoding]];
+
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:query]];
+
+        [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
+        [request setTimeoutInterval:30];
+
+		[checkoutButton setEnabled:NO];
+		[NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:
+		 ^(NSURLResponse *response, NSData *order_data, NSError *err)
+		 {
+			 [checkoutButton setEnabled:YES];
+			 if (err) {
+				 if ([err code] == NSURLErrorNotConnectedToInternet)
+					 [self showAlert:@"No internet connection available."];
+				 else
+					 [self showAlert:@"Failed to submit the order. Please contact a sales associate at the service desk."];
+			 } else {
+				 NSDictionary *order_response = [[JSONDecoder decoder] objectWithData:order_data];
+				 if([order_response objectForKey:@"error"] != (id)[NSNull null] && [[order_response objectForKey:@"error"] length] > 0){
+					 [self showAlert:@"Failed to submit the order. Please contact a sale associate at the service desk."];
+				 }else{
+					 [self showSuccess:[NSString stringWithFormat:@"Order #%@ was submitted. Please contact a sales associate at the checkout counter to fulfill the rest of the order.",[order_response objectForKey:@"orderID"]]];
+				 }
+			 }
+		 }];
+	}
 }
+
 
 - (void) viewDetails:(id)sender{
     

@@ -14,6 +14,7 @@
     NSString *model;
     NSString *style;
     BOOL cartButtonVisible;
+	UIScrollView *scrollView;
 }
 
 @property (nonatomic, retain) NSDictionary *part;

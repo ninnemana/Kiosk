@@ -7,5 +7,8 @@
 //
 
 @interface CartListController : UIViewController
+{
+	UIButton *checkoutButton;
+}
 
 @end

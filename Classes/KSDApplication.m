@@ -53,7 +53,7 @@ NSString * const KSDIdlingWindowActiveNotification = @"KSDIdlingWindowActiveNoti
     NSLog(@"idle time exceeded");
     
     VideoViewController *videoController = [[VideoViewController alloc] initWithNibName:@"VideoView" bundle:nil];
-    
+
     KSDAppDelegate *delegate = (KSDAppDelegate *)[[UIApplication sharedApplication] delegate];
     [delegate.splitViewController.view addSubview:videoController.view];
 }

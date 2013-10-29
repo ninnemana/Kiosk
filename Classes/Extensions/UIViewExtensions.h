@@ -6,7 +6,7 @@
 - (void)fcext_fade:(float)duration;
 - (void)fcext_fade;
 
-- (void)fcext_popIn:(float)duration;
+- (void)fcext_popIn:(float)duration power:(float)power;
 - (void)fcext_popIn;
 
 - (void)fcext_moveInFromTop:(float)duration;

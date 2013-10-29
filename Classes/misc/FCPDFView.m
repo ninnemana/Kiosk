@@ -12,6 +12,8 @@
 
 - (void)closeButtonTouched;
 
+- (void)loadingTooLong;
+
 @end
 
 
@@ -25,11 +27,22 @@
 
 - (void)closeButtonTouched
 {
-	[webView stopLoading];
+	if ([webView isLoading])
+		[webView stopLoading];
+	webView.delegate = nil;
+	[NSObject cancelPreviousPerformRequestsWithTarget:self];
 
 	UIView* superview = self.superview;
 	[self removeFromSuperview];
 	[superview fcext_fade];
+}
+
+
+- (void)loadingTooLong
+{
+	[closeButton fcext_popIn:0.3f power:2.0f];
+
+	[self performSelector:@selector(loadingTooLong) withObject:nil afterDelay:5.0f];
 }
 
 
@@ -38,9 +51,15 @@
 
 - (void)dealloc
 {
-	[webView release];
+	if ([webView isLoading])
+		[webView stopLoading];
+	webView.delegate = nil;
+	[NSObject cancelPreviousPerformRequestsWithTarget:self];
 
 	[activityIndicator release];
+
+	[webView release];
+	[closeButton release];
 
 	[super dealloc];
 }
@@ -67,7 +86,7 @@
 		[self addSubview:webView];
 		webView.hidden = YES;
 
-		UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+		closeButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
 		closeButton.frame = CGRectMake(frame.size.width - 50.0f, 20.0f, 30.0f, 30.0f);
 		[closeButton setImage:[UIImage imageNamed:@"close_button.png"] forState:UIControlStateNormal];
 		[closeButton addTarget:self action:@selector(closeButtonTouched) forControlEvents:UIControlEventTouchUpInside];
@@ -86,10 +105,9 @@
 	[pdfView.webView loadRequest:[NSURLRequest requestWithURL:url]];
 
 	[view addSubview:pdfView];
-	[pdfView release];
+	[pdfView autorelease];
 
 	[view fcext_fade];
-//	[pdfView fcext_size:0.3f from:origin to:pdfView.frame];
 }
 
 
@@ -98,29 +116,42 @@
 
 - (void)webViewDidStartLoad:(UIWebView*)aWebView
 {
+	[self retain];
+
 	[activityIndicator startAnimating];
 	[activityIndicator fcext_fade];
+
+	[self performSelector:@selector(loadingTooLong) withObject:nil afterDelay:4.0f];
 }
 
 
 - (void)webViewDidFinishLoad:(UIWebView*)aWebView
 {
+	[NSObject cancelPreviousPerformRequestsWithTarget:self];
+
 	[activityIndicator stopAnimating];
 	[activityIndicator fcext_fade];
 
 	aWebView.hidden = NO;
 	[aWebView fcext_fade];
+
+	[self release];
 }
 
 
-- (void)webView:(UIWebView*)webView didFailLoadWithError:(NSError*)error
+- (void)webView:(UIWebView*)aWebView didFailLoadWithError:(NSError*)error
 {
-	NSString* msg = @"Failed to load the requested PDF. Please try again later.";
-	UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-	[alertView show];
-	[alertView release];
+	if (self.superview)
+	{
+		NSString* msg = @"Failed to load the requested PDF. Please try again later.";
+		UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+		[alertView show];
+		[alertView release];
+	}
 
 	[self closeButtonTouched];
+
+	[self release];
 }
 
 

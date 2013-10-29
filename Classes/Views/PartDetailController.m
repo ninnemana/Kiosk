@@ -27,6 +27,75 @@ UITabBar *tabBar;
 UIToolbar *toolbar;
 
 
+- (void)backgroundLoadImages:(NSArray*)img_indexes
+{
+	NSMutableArray *resultMutable = [[NSMutableArray alloc] init];
+
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    for (int i=0; i<[img_indexes count]; i++)
+	{
+        NSError *imgErr = nil;
+        NSURLResponse *imgResponse = nil;
+        NSMutableURLRequest *imgRequest = [[NSMutableURLRequest alloc] init];
+
+		NSString *partID = [self.part objectForKey:@"partID"];
+		NSString *index = [img_indexes objectAtIndex:i];
+		NSString *urlString = [NSString stringWithFormat:@"http://docs.curthitch.biz/masterlibrary/%@/images/%@_300x225_%@.jpg", partID, partID, index];
+        [imgRequest setURL:[NSURL URLWithString:urlString]];
+        [imgRequest setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
+        [imgRequest setTimeoutInterval:30];
+
+        NSData *imgData = [NSURLConnection sendSynchronousRequest:imgRequest returningResponse:&imgResponse error:&imgErr];
+		[imgRequest release];
+        if (!imgErr)
+		{
+            NSHTTPURLResponse *resp = (NSHTTPURLResponse *)imgResponse;
+            if ([resp statusCode] == 200)
+			{
+                UIImage *img = [[UIImage alloc] initWithData:imgData];
+                [resultMutable addObject:img];
+                [img release];
+            }
+        }
+    }
+	[pool release];
+
+	NSArray *result = [[NSArray alloc] initWithArray:resultMutable];
+	[resultMutable release];
+
+	[self performSelectorOnMainThread:@selector(didLoadImages:) withObject:result waitUntilDone:YES];
+	[result release];
+}
+
+
+- (void)didLoadImages:(NSArray*)images
+{
+	if ([images count] > 0)
+	{
+        // Create a frame for our main image
+        CGRect frame;
+        frame.size.width = 300; frame.size.height = 225;
+        frame.origin.x = 350; frame.origin.y = 100;
+        
+        UIImageView *imgView = [[UIImageView alloc] initWithFrame:frame];
+        [imgView setBackgroundColor:[UIColor whiteColor]];
+        CALayer *imgLayer = [imgView layer];
+        [imgLayer setMasksToBounds:YES];
+        [imgLayer setCornerRadius:6.0];
+        [imgLayer setBorderWidth:2.0];
+        [imgLayer setBorderColor:[[UIColor fcext_colorWithHexString:@"232323"] CGColor]];
+        
+        imgView.animationImages = images;
+        imgView.animationDuration = 20.0;
+        imgView.animationRepeatCount = 0;
+        [imgView startAnimating];
+        [scrollView addSubview:imgView];
+        [imgView release];
+    }
+	[scrollView fcext_fade];
+}
+
+
 - (void)openPDF:(UIGestureRecognizer*)recognizer
 {
 	UILabel *piece = (UILabel*) recognizer.view;
@@ -35,7 +104,7 @@ UIToolbar *toolbar;
 }
 
 
-- (void) dealloc
+- (void)dealloc
 {
 	[part release];
 	[mount release];
@@ -43,6 +112,8 @@ UIToolbar *toolbar;
 	[make release];
 	[model release];
 	[style release];
+
+	[scrollView release];
 
 	[super dealloc];
 }
@@ -77,7 +148,8 @@ UIToolbar *toolbar;
     
     self.view.backgroundColor = [UIColor blackColor];
     // Assign the view to be referenced by variable
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+	[scrollView release];
+    scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     
     // Set the background color of our view
     /*CAGradientLayer *gradient = [CAGradientLayer layer];
@@ -180,68 +252,30 @@ UIToolbar *toolbar;
     [scrollView addSubview:titleView];
     [titleView release];
 
-    NSMutableArray *img_array = [[NSMutableArray alloc] initWithCapacity:5];
     NSMutableArray *img_indexes = [[NSMutableArray alloc] initWithCapacity:5];
     [img_indexes addObject:[NSString stringWithFormat:@"a"]];
     /*[img_indexes addObject:[NSString stringWithFormat:@"b"]];
     [img_indexes addObject:[NSString stringWithFormat:@"c"]];
     [img_indexes addObject:[NSString stringWithFormat:@"d"]];
     [img_indexes addObject:[NSString stringWithFormat:@"e"]];*/
-    
-    int i;
-    for (i = 0; i < [img_indexes count]; i++) {
-        NSError *imgErr = nil;
-        NSURLResponse *imgResponse = nil;
-        NSMutableURLRequest *imgRequest = [[[NSMutableURLRequest alloc] init] autorelease];
-        
-        [imgRequest setURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://docs.curthitch.biz/masterlibrary/%@/images/%@_300x225_%@.jpg",[self.part objectForKey:@"partID"],[self.part objectForKey:@"partID"],[img_indexes objectAtIndex:i]]]];
-        [imgRequest setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
-        [imgRequest setTimeoutInterval:30];
-        
-        NSData *imgData = [NSURLConnection sendSynchronousRequest:imgRequest returningResponse:&imgResponse error:&imgErr];
-        if(!imgErr){
-            NSHTTPURLResponse *resp = (NSHTTPURLResponse *)imgResponse;
-            if([resp statusCode] == 200){
-                UIImage *img = [[UIImage alloc] initWithData:imgData];
-                [img_array addObject:img];
-                [img release];
-            }
-        }
-    }
-    [img_indexes release];
-    
-    if([img_array count] > 0){
-        // Create a frame for our main image
-        CGRect frame;
-        frame.size.width = 300; frame.size.height = 225;
-        frame.origin.x = 350; frame.origin.y = 100;
-        
-        UIImageView *imgView = [[UIImageView alloc] initWithFrame:frame];
-        [imgView setBackgroundColor:[UIColor whiteColor]];
-        CALayer *imgLayer = [imgView layer];
-        [imgLayer setMasksToBounds:YES];
-        [imgLayer setCornerRadius:6.0];
-        [imgLayer setBorderWidth:2.0];
-        [imgLayer setBorderColor:[[UIColor fcext_colorWithHexString:@"232323"] CGColor]];
-        
-        imgView.animationImages = img_array;
-        imgView.animationDuration = 20.0;
-        imgView.animationRepeatCount = 0;
-        [imgView startAnimating];
-        [scrollView addSubview:imgView];
-        [imgView release];
-    }
-    [img_array release];
-    
+
+	UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+	[scrollView addSubview:activityIndicator];
+	[activityIndicator fcext_setOrigin:CGPointMake(490.0f, 202.5f)];
+	[activityIndicator startAnimating];
+	[activityIndicator release];
+	[self performSelectorInBackground:@selector(backgroundLoadImages:) withObject:img_indexes];
+
     // We need to retrieve the Customer ID from the plist
     NSString *custIDString = [[NSUserDefaults standardUserDefaults] stringForKey:@"customerID"];
     NSNumber *custID = [NSNumber numberWithInt:0];
-    if([custIDString length] > 0){
-        custID = (NSNumber *)custIDString;
+    if ([custIDString length] > 0)
+	{
+        custID = [NSNumber numberWithInt:[custIDString intValue]];
     }
     
-    if([custID intValue] > 0){
-        
+    if ([custID intValue] > 0)
+	{
         // Create a label for the price
         UILabel *listPrice = [[[UILabel alloc] initWithFrame:CGRectMake(20, 110, 150, 50)]autorelease];
         listPrice.text = [NSString stringWithFormat:@"%@",[self.part objectForKey:@"listPrice"]];
@@ -272,7 +306,7 @@ UIToolbar *toolbar;
     NSMutableArray *part_attributes = [NSMutableArray arrayWithArray:[self.part objectForKey:@"attributes"]];
     int label_y = 0;
     if(part_attributes != nil){
-        for(i = 0; i < [part_attributes count]; i++){
+        for(int i = 0; i < [part_attributes count]; i++){
             NSDictionary *part_attr = [[NSDictionary alloc] initWithDictionary:[part_attributes objectAtIndex:i]];
             
             UILabel *attr = [[UILabel alloc] initWithFrame:CGRectMake(20, label_y, 300, 35)];
@@ -320,7 +354,7 @@ UIToolbar *toolbar;
     
     NSMutableArray *content_pieces = [NSMutableArray arrayWithArray:[self.part objectForKey:@"content"]];
     if(content_pieces != nil){
-        for(i = 0; i < [content_pieces count]; i++){
+        for(int i = 0; i < [content_pieces count]; i++){
             NSDictionary *content = [NSDictionary dictionaryWithDictionary:[content_pieces objectAtIndex:i]];
 
             UILabel *piece = [[UILabel alloc] init];
@@ -395,13 +429,14 @@ UIToolbar *toolbar;
         //[tabBar release];
     }*/
 
-    if(content_height > label_y){
+    if(content_height > label_y)
+	{
         scrollView.contentSize = CGSizeMake(self.view.frame.size.width, content_height);
-    }else{
+    } else
+	{
         scrollView.contentSize = CGSizeMake(self.view.frame.size.width, label_y);
     }
     [self.view addSubview:scrollView];
-    [scrollView release];
 }
 
 
@@ -429,19 +464,19 @@ UIToolbar *toolbar;
     [quantity release];*/
     
     KSDAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    if(delegate.cartItems != nil){
+    if(delegate.cartItems != nil) {
         NSMutableDictionary *existingItems = [NSMutableDictionary dictionaryWithDictionary:delegate.cartItems];
         CartItem *existingItem = [existingItems objectForKey:(NSString*)partID];
-        if(existingItem == nil){
+        if(existingItem == nil) {
             [existingItems setValue:item forKey:(NSString*)partID];
             delegate.cartItems = [NSMutableDictionary dictionaryWithDictionary:existingItems];
-        }else{
+        } else {
             NSNumber *numQty = (NSNumber*)existingItem.quantity;
             int intQty = [numQty intValue];
             numQty = [NSNumber numberWithInt:intQty + 1];
             existingItem.quantity = numQty;
         }
-    }else{
+    } else {
         delegate.cartItems = [NSMutableDictionary dictionaryWithObject:item forKey:(NSString*)partID];
     }
     [item release];
@@ -451,18 +486,19 @@ UIToolbar *toolbar;
     [alertView show];
     [alertView release];
     
-    if(!cartButtonVisible){ // Add the ViewCart button to toolbar
-        
+    if (!cartButtonVisible)
+	{
+		// Add the ViewCart button to toolbar
         NSMutableArray *toolbarItems = [[NSMutableArray alloc] initWithCapacity:6];
-        
+
         UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
         [spacer setTintColor:[UIColor whiteColor]];
         [toolbarItems addObject:spacer];
         [spacer release];
-        
+
         // Create the UILabel to contain the vehicle text.
         UILabel *toolbarLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 540, 44)];
-        toolbarLabel.text = [NSString stringWithFormat:@"%@ %@ %@ %@",year,make,model,style];
+        toolbarLabel.text = [NSString stringWithFormat:@"%@ %@ %@ %@", year, make, model, style];
         toolbarLabel.textAlignment = UITextAlignmentLeft;
         [toolbarLabel setBackgroundColor:[UIColor clearColor]];
         [toolbarLabel setFont:[UIFont boldSystemFontOfSize:20.0]];
@@ -473,26 +509,26 @@ UIToolbar *toolbar;
         [toolbarItems addObject:toolbarTitle];
         [toolbarTitle release];
         [toolbarLabel release];
-        
+
         UIBarButtonItem *spacer3 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
         [toolbarItems addObject:spacer3];
         [spacer3 release];
-        
+
         UIBarButtonItem *cartButton = [[UIBarButtonItem alloc] initWithTitle:@"View Cart" style:UIBarButtonItemStyleDone target:self action:@selector(viewCart)];
         [toolbarItems addObject:cartButton];
         [cartButton release];
-        
+
         UIBarButtonItem *spacer2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
         [toolbarItems addObject:spacer2];
         [spacer2 release];
-        
+
         UIBarButtonItem *resetButton = [[UIBarButtonItem alloc] initWithTitle:@"Reset" style:UIBarButtonItemStyleBordered target:self action:@selector(resetApplication)];
         [toolbarItems addObject:resetButton];
         [resetButton release];
-        
+
         [toolbar setItems:toolbarItems animated:YES];
         [toolbarItems release];
-        
+
         [self setCartButtonVisible:NO];
     }
 }
@@ -502,10 +538,11 @@ UIToolbar *toolbar;
 {
     CartListController *cartController = [[CartListController alloc] init];
     UIViewController *lookupController = [self.splitViewController.viewControllers objectAtIndex:0];
-    
+
     [self.navigationController pushViewController:lookupController animated:YES];
     self.splitViewController.viewControllers = [NSArray arrayWithObjects:[self.splitViewController.viewControllers objectAtIndex:0], cartController, nil];
-    
+
+	[cartController.view.superview fcext_fade];
     [cartController release];
 }
 
@@ -514,13 +551,13 @@ UIToolbar *toolbar;
 {
     KSDAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     delegate.cartItems = nil;
-    
+
     RootViewController *yearController = [[RootViewController alloc] init];
     DetailViewController *detailController = [[DetailViewController alloc] init];
-    
+
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:yearController];
     self.splitViewController.viewControllers = [NSArray arrayWithObjects:navController, detailController, nil];
-    
+
     [yearController release];
     [detailController release];
     [navController release];

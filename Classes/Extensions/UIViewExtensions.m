@@ -57,12 +57,12 @@
 #pragma mark pop
 
 
-- (void)fcext_popIn:(float)duration
+- (void)fcext_popIn:(float)duration power:(float)power
 {
 	CAKeyframeAnimation *scale = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
 	scale.duration = duration;
-	scale.values = [NSArray arrayWithObjects:[NSNumber numberWithFloat:0.5f], [NSNumber numberWithFloat:1.3f],
-					[NSNumber numberWithFloat:0.85f], [NSNumber numberWithFloat:1.0f], nil];
+	scale.values = [NSArray arrayWithObjects:[NSNumber numberWithFloat:(0.5f*power)], [NSNumber numberWithFloat:(1.3f*power)],
+					[NSNumber numberWithFloat:(0.85f*power)], [NSNumber numberWithFloat:1.0f], nil];
 
 	CABasicAnimation *fadeIn = [CABasicAnimation animationWithKeyPath:@"opacity"];
 	fadeIn.duration = duration * 0.4f;
@@ -80,7 +80,7 @@
 
 - (void)fcext_popIn
 {
-	[self fcext_popIn:0.3f];
+	[self fcext_popIn:0.3f power:1.0f];
 }
 
 

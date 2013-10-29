@@ -70,8 +70,9 @@
     // We need to retrieve the Customer ID from the plist
     NSString *custIDString = [NSString stringWithFormat:@"%@",[[NSUserDefaults standardUserDefaults] stringForKey:@"customerID"]];
     NSNumber *custID = [NSNumber numberWithInt:0];
-    if([custIDString length] > 0){
-        custID = (NSNumber *)custIDString;
+    if ([custIDString length] > 0)
+	{
+        custID = [NSNumber numberWithInt:[custIDString intValue]];
     }
 
     // Create our string from vehicle data
@@ -81,7 +82,7 @@
 							[make encodeString:NSUTF8StringEncoding],
 							[model encodeString:NSUTF8StringEncoding],
 							[style encodeString:NSUTF8StringEncoding],
-							custID];
+							[custID stringValue]];
     
     // Compile the URL
     NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
@@ -260,7 +261,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	if (indexPath.row == selectedRow)
-		return;
+	{
+		NSArray *vcs = self.splitViewController.viewControllers;
+		if ([vcs count] > 1)
+		{
+			UIViewController *rightVC = [vcs objectAtIndex:1];
+			if ([rightVC isKindOfClass:[PartDetailController class]])
+				return;
+		}
+	}
+
 	selectedRow = indexPath.row;
 
     NSDictionary *part = [items objectAtIndex:indexPath.row];

@@ -2,6 +2,7 @@
 {
 	UIActivityIndicatorView	*activityIndicator;
 	UIWebView	*webView;
+	UIButton	*closeButton;
 }
 
 
